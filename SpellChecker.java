@@ -61,13 +61,13 @@ public class SpellChecker {
 				right=dictionary[i];
 			}
 		}
-		if (min<=threshold)
+		if (min>threshold)
 		{
-			return right;
+			return word;
 		}
 		else
 		{
-			return word;
+			return right;
 		}
 	}
 }
