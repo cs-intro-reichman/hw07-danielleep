@@ -17,10 +17,10 @@ public class SpellChecker {
 
 
 	
-	public static int levenshtein(String word1, String word2) 
+	public static int levenshtein(String str1, String str2) 
 	{
-		word1.toLowerCase();
-		word2.toLowerCase();
+		String word1=str1.toLowerCase();
+		String word2=str2.toLowerCase();
 		if(word1.length()==0)
 		{
 			return word2.length();
@@ -31,7 +31,7 @@ public class SpellChecker {
 		}
 		if(word1.charAt(0)==word2.charAt(0))
 		{
-			return Math.min(Math.min(levenshtein(tail(word1), tail(word2)), levenshtein(tail(word1), word2)), levenshtein(word1, tail(word2)));
+			return levenshtein(tail(word1), tail(word2));
 
 		}
 		return 1+ Math.min(Math.min(levenshtein(tail(word1), tail(word2)), levenshtein(tail(word1), word2)), levenshtein(word1, tail(word2)));
